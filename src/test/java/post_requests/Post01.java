@@ -33,6 +33,7 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
                                     "id": 201
                                     }
      */
+    //1.Way: Is NOT RECOMMENDED
 
     @Test
     public void post01() {
@@ -62,6 +63,7 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
 
     }
 
+    //2.Way:RECOMMENDED
 
     @Test
     public void post01b() {
