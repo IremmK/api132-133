@@ -13,7 +13,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class HomeWork07 extends ReqresBaseUrl {
+public class HomeWork08 extends ReqresBaseUrl {
 
     //Homework7:
 
