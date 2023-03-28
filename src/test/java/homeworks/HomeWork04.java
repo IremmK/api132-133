@@ -30,7 +30,7 @@ public class HomeWork04 extends HerOkuAppBaseUrl {
 //        https://restful-booker.herokuapp.com/booking?firstname=Brandon&lastname=Wilson
 
         spec.pathParam("first","booking").
-                queryParams("firstname","Brandon","lastname","Wilson");
+                queryParams("firstname","John","lastname","Smith");
 
 //        When
 //        User sends get request to the URL

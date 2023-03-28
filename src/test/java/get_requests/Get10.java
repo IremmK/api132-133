@@ -3,6 +3,7 @@ package get_requests;
 import base_urls.HerOkuAppBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
+import test_data.HerOkuAppTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class Get10 extends HerOkuAppBaseUrl {
     @Test
     public void get10() {
         //Set the url
-        spec.pathParams("first", "booking", "second", 11);
+        spec.pathParams("first", "booking", "second", 183);
 
         //Set the expected data
         Map<String, String> bookingdatesMap = new HashMap<>();
@@ -48,6 +49,7 @@ public class Get10 extends HerOkuAppBaseUrl {
         expectedData.put("depositpaid", true);
         expectedData.put("bookingdates", bookingdatesMap);
         expectedData.put("additionalneeds", "Extra pillows please");
+
 
         System.out.println("expectedData = " + expectedData);
 
