@@ -2,9 +2,12 @@ package get_requests;
 
 import base_urls.HerOkuAppBaseUrl;
 import io.restassured.response.Response;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.hasItems;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -36,6 +39,8 @@ public class Get05 extends HerOkuAppBaseUrl {
         //Do assertion
         assertEquals(200,response.statusCode());
         assertTrue(response.asString().contains("bookingid"));
+        
+
 
     }
 }
