@@ -2,6 +2,7 @@ package post_requests;
 
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
+import org.junit.Assert;
 import org.junit.Test;
 import pojos.JsonPlaceHolderPojo;
 
@@ -35,7 +36,7 @@ public class Post03 extends JsonPlaceHolderBaseUrl {
         spec.pathParam("first", "todos");
 
         //Set the expected data
-        JsonPlaceHolderPojo expectedData = new JsonPlaceHolderPojo(33, "Tidy your room", false);
+        JsonPlaceHolderPojo expectedData = new JsonPlaceHolderPojo(55, "Tidy your room", false);
         System.out.println("expectedData = " + expectedData);
 
         //Send the request and get the response
@@ -43,7 +44,13 @@ public class Post03 extends JsonPlaceHolderBaseUrl {
         response.prettyPrint();
 
         //Do assertion
+        JsonPlaceHolderPojo actualData =  response.as(JsonPlaceHolderPojo.class);//De-serialization
+        System.out.println("actualData = " + actualData);
 
+        Assert.assertEquals(201,response.statusCode());
+        Assert.assertEquals(expectedData.getUserId(),actualData.getUserId());
+        Assert.assertEquals(expectedData.getCompleted(),actualData.getCompleted());
+        Assert.assertEquals(expectedData.getTitle(),actualData.getTitle());
 
 
     }

@@ -1,5 +1,8 @@
 package pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class JsonPlaceHolderPojo {
 
     private Integer userId;
@@ -10,6 +13,9 @@ public class JsonPlaceHolderPojo {
     }
 
     public JsonPlaceHolderPojo(Integer userId, String title, Boolean completed) {
+        this.userId = userId;
+        this.title = title;
+        this.completed = completed;
     }
 
     public Integer getUserId() {
