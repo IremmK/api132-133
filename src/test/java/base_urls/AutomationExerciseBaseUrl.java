@@ -5,12 +5,13 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
-public class PetStoreBaseUrl {
+public class AutomationExerciseBaseUrl {
     protected RequestSpecification spec;
+
     @Before//This method will run before each @Test methods.
     public void setUp() {
 
-        spec = new RequestSpecBuilder().setBaseUri("https://petstore.swagger.io/v2").setContentType(ContentType.JSON).build();
+        spec = new RequestSpecBuilder().setBaseUri("https://automationexercise.com").build().contentType(ContentType.JSON);
 
     }
 }
