@@ -65,6 +65,6 @@ public class HomeWork10 extends AutomationExerciseBaseUrl {
         assertEquals(12,womenSize);
 
     }
-    //Hello
+
 
 }
