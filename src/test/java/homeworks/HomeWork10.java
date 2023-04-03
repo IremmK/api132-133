@@ -7,9 +7,9 @@ import io.restassured.response.Response;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
+
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -65,5 +65,6 @@ public class HomeWork10 extends AutomationExerciseBaseUrl {
         assertEquals(12,womenSize);
 
     }
+    //Hello
 
 }
