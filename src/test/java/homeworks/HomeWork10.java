@@ -31,8 +31,8 @@ public class HomeWork10 extends AutomationExerciseBaseUrl {
     @Test
     public void homeWork10  (){
         //Set the URL
-        String url = "https://automationexercise.com/api/productsList";
-        spec.pathParams("first","api","second","productsList").queryParam("products.category.usertype.usertype","Women");
+        //  String url = "https://automationexercise.com/api/productsList";
+        spec.pathParams("first","api","second","productsList");
 
         //Set the expected data
         //Send the request and get the data
@@ -55,6 +55,14 @@ public class HomeWork10 extends AutomationExerciseBaseUrl {
 
         System.out.println("women = " + women);
         assertEquals(12,women.size());
+
+        int womenSize=0;
+        for (int i =0 ; i<usertype.size();i++){
+            if(usertype.get(i).equals("Women")){
+                womenSize++;
+            }
+        }
+        assertEquals(12,womenSize);
 
     }
 
