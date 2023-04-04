@@ -41,6 +41,10 @@ public class HomeWork10 extends AutomationExerciseBaseUrl {
 
         //Do assertion
         JsonPath json = response.jsonPath();
+//        List<String> womenList =  json.getList("products.category.usertype.findAll{usertype=='Women'}.usertype");
+//        System.out.println("womenList = " + womenList);
+
+
         List<String> usertype = json.getList("products.category.usertype.usertype");
         System.out.println("usertype = " + usertype);
 

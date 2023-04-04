@@ -1,12 +1,16 @@
 package get_requests;
 
 import base_urls.GorestBaseUrl;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
+
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class Get12 extends GorestBaseUrl {
     /*
@@ -40,19 +44,39 @@ public class Get12 extends GorestBaseUrl {
         response.prettyPrint();
 
         //Do assertion
-        //The value of "pagination limit" is 10
-        int paginationLimit = response.jsonPath().getInt("meta.pagination.limit");
-        System.out.println("paginationLimit = " + paginationLimit);
-        assertEquals(10,paginationLimit);
 
-        // The "current link" should be "https://gorest.co.in/public/v1/users?page=1"
-        String currentLink = response.jsonPath().getString("meta.pagination.links.current");
-        assertEquals("https://gorest.co.in/public/v1/users?page=1",currentLink);
 
+        //Teacher's Way
         response.then().body("meta.pagination.limit",equalTo(10),
                 "meta.pagination.links.current",equalTo("https://gorest.co.in/public/v1/users?page=1"),
                 "data",hasSize(10),"data.status",hasItem("active"),
-                "data.name",hasItems("Mr. Upendra Mehrotra","Radha Dwivedi","Rajendra Dhawan"));
+                "data.name",hasItems("Chidambar Dhawan","Anunay Gowda LLD","Abani Mehra Sr."));
+
+        //The female users are less than or equals to male users
+        //We will compare number of females and male users
+        //1.Way : We will get all the genders inside a list then we will count the number of females
+        JsonPath jsonPath = response.jsonPath();
+        List<String> genderList =  jsonPath.getList("data.gender");
+        System.out.println("genderList = " + genderList);
+
+        int numOfFemales = 0;
+
+        for(String w :genderList){
+            if(w.equals("female")){
+                numOfFemales++;
+        }}
+
+        assertTrue(numOfFemales<=genderList.size()-numOfFemales);
+
+        //2.Way : We will get all females inside a list by using groovy then compare it with males
+        List<String> femaleList = jsonPath.getList("data.findAll{it.gender=='female'}.gender");
+        List<String> maleList = jsonPath.getList("data.findAll{it.gender=='male'}.gender");
+        assertTrue(femaleList.size()<=maleList.size());
+
+
+
+
+
 
 
     }
