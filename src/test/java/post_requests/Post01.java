@@ -52,6 +52,7 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
         Response response = given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().post("{first}");
         response.prettyPrint();
 
+
         //Do Assertion
         Map<String, Object> actualData = response.as(HashMap.class);//De-Serialization--> Json to Java
         System.out.println("actualData = " + actualData);

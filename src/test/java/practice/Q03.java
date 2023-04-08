@@ -40,7 +40,7 @@ public class Q03 extends HerOkuAppBaseUrl {
    @Test
     public void q03 () throws IOException {
        //Set the URL
-       spec.pathParams("first","booking","second",88);
+       spec.pathParams("first","booking","second",147);
 
        //Set the expected data
        BookingDatesPojo bookingDates = new BookingDatesPojo("2018-01-01","2019-01-01");
@@ -55,7 +55,7 @@ public class Q03 extends HerOkuAppBaseUrl {
        BookingPojo actualData = new ObjectMapper().readValue(response.asString(),BookingPojo.class);
        System.out.println("actualData = " + actualData);
 
-       JsonPath json = response.jsonPath();
+
        SoftAssert softAssert = new SoftAssert();
        softAssert.assertEquals(response.getStatusCode(),200);
        softAssert.assertEquals(actualData.getFirstname(),expectedData.getFirstname());

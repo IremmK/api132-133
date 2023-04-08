@@ -70,5 +70,16 @@ public class HomeWork10 extends AutomationExerciseBaseUrl {
 
     }
 
+    @Test
+    public void automationExerciseTest(){
+        spec.pathParam("first","productsList");
+        Response response = given(spec).get("{first}");
+        response.jsonPath().prettyPrint();
+        JsonPath jsonPath = response.jsonPath();
+        //Assert that number of "Women" usertype is 12
+        int numOfWomanUser = jsonPath.getList("products.findAll{it.category.usertype.usertype=='Women'}").size();
+        assertEquals(12,numOfWomanUser);
+    }
+
 
 }
