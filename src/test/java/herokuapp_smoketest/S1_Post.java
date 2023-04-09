@@ -52,6 +52,7 @@ public class S1_Post extends HerOkuAppBaseUrl {
         }
      */
 
+    public static int bookingId;//We put the created bookingId into a container and use it in other class
     @Test
     public void postTest() {
         //Set the url
@@ -80,6 +81,9 @@ public class S1_Post extends HerOkuAppBaseUrl {
         assertEquals(bookingDatesPojo.getCheckin(), actualData.getBooking().getBookingdates().getCheckin());
         assertEquals(bookingDatesPojo.getCheckout(), actualData.getBooking().getBookingdates().getCheckout());
         assertEquals(expectedData.getAdditionalneeds(), actualData.getBooking().getAdditionalneeds());
+
+        bookingId = actualData.getBookingid();
+        System.out.println("bookingId = " + bookingId);
 
     }
 }
