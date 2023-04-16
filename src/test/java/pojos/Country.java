@@ -1,5 +1,7 @@
 package pojos;
 
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
@@ -13,8 +15,7 @@ public class Country {
     public Country() {
     }
 
-    public Country( String name, List <States> states) {
-
+    public Country(String name, List<States> states) {
         this.name = name;
         this.states = states;
     }
@@ -27,7 +28,7 @@ public class Country {
         this.name = name;
     }
 
-    public Object getStates() {
+    public List<States> getStates() {
         return states;
     }
 
@@ -37,8 +38,8 @@ public class Country {
 
     @Override
     public String toString() {
-        return "CountryPojo{" +
-                ", name='" + name + '\'' +
+        return "Country{" +
+                "name='" + name + '\'' +
                 ", states=" + states +
                 '}';
     }
